@@ -6,8 +6,8 @@ Group project submitted for **DSS5104 — Machine Learning**, MSc, National Univ
 
 | Name | Student ID |
 |---|---|
-| **Apurwa Kumari** | A0333260R |
 | **Aditya Vijindra Pandhari** | A0328872R |
+| **Apurwa Kumari** | A0333260R |
 | **Vanshika Dhamija** | A0333989H |
 
 > Final report: **`Project_Report_Final.pdf`**
