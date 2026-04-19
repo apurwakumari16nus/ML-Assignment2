@@ -1,0 +1,73 @@
+============================================================
+  HF PRE-TRAINED MODEL — Baseline vs War Distress Validation
+============================================================
+
+  Loading HF model: j-hartmann/emotion-english-distilroberta-base
+
+  Sampling 2000 war-period comments...
+  Sampling 2000 baseline comments...
+
+  Classifying war sample (2000)...
+  Classifying baseline sample (2000)...
+
+============================================================
+  HF EMOTION DISTRIBUTION (7-class, includes neutral)
+============================================================
+
+  Emotion        Baseline        War          Δ
+  --------------------------------------------
+  anger             12.7%      13.9%      +1.2pp
+  disgust           12.4%      13.6%      +1.1pp
+  fear               5.7%       5.3%      -0.4pp
+  joy                3.7%       2.5%      -1.1pp
+  neutral           54.7%      54.3%      -0.4pp
+  sadness            3.2%       2.1%      -1.1pp
+  surprise           7.6%       8.3%      +0.7pp
+
+============================================================
+  DISTRESS RATIO COMPARISON (HF model, independent)
+============================================================
+
+  Strict (sadness+fear+anger):
+    Baseline: 21.6%
+    War:      21.3%
+    Change:   -0.2 pp
+
+  Expanded (sadness+fear+anger+disgust):
+    Baseline: 34.0%
+    War:      34.9%
+    Change:   +0.9 pp
+
+============================================================
+  STATISTICAL TEST (Chi-square, HF 7-class)
+============================================================
+
+  Chi-square: 11.68
+  df:         6
+  p-value:    6.94e-02
+  Significant: NO
+
+============================================================
+  NEUTRAL-CLASS INSIGHT
+============================================================
+
+  Neutral share — Baseline: 54.7%, War: 54.3%
+  Delta: -0.4 pp
+  (If neutral drops during war, emotional engagement rose.)
+
+============================================================
+  INTERPRETATION
+============================================================
+
+  This run uses an INDEPENDENT pre-trained model (j-hartmann) with a
+  NEUTRAL class that our 6-class fine-tuned model cannot produce.
+
+  If the HF model *also* shows a baseline->war distress rise, this is
+  strong independent validation that the effect is real and not an
+  artifact of our model's forced emotional labelling on neutral text.
+
+  If the HF model shows NO rise (or a smaller one), it suggests our
+  fine-tuned model was amplifying a true but smaller underlying signal
+  (absolute numbers inflated, relative direction still correct).
+
+============================================================

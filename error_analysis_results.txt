@@ -1,0 +1,229 @@
+============================================================
+  ERROR ANALYSIS — Misclassification Patterns
+============================================================
+
+Loading emotion dataset...
+
+Training TF-IDF + LogReg for error analysis...
+  TF-IDF acc=0.8665, F1=0.8638
+
+Running BERT inference for error analysis...
+  BERT acc=0.9290, F1=0.9282
+
+Running DistilBERT inference for error analysis...
+  DistilBERT acc=0.9340, F1=0.9332
+
+Generating confusion matrices...
+
+============================================================
+  MISCLASSIFIED EXAMPLES — TF-IDF + LogReg
+============================================================
+
+  Total misclassified: 267 / 2000 (13.3%)
+
+  Sample of 30 misclassified examples:
+------------------------------------------------------------
+
+  [1] True: love       Pred: joy        Type: confused positive emotions
+      "im so proud of you no words can describe the way that makes my heart feel thank you god for my suppo..."
+
+  [2] True: joy        Pred: anger      Type: other
+      "i suppose if one was feeling generous one could say i was stressed by the elevator ride"
+
+  [3] True: love       Pred: joy        Type: confused positive emotions
+      "i walked to school he felt the bounce in his step the overjoyed feelings of youth and the thrill of ..."
+
+  [4] True: joy        Pred: love       Type: confused positive emotions
+      "i have this grave feeling it will not be back until tomorrow and strangely enough i have accepted it"
+
+  [5] True: sadness    Pred: fear       Type: confused negative emotions
+      "i only talk about how people make me feel and the only people i talk about are the ones that make me..."
+
+  [6] True: anger      Pred: joy        Type: long/complex text
+      "i find it helps to let go of self will by saying let your will be done not mine or when i m feeling ..."
+
+  [7] True: anger      Pred: sadness    Type: confused negative emotions
+      "i was feeling whether it be mad sad disappointed or peaceful"
+
+  [8] True: sadness    Pred: joy        Type: other
+      "i was cooking my dinner feeling pretty melancholy when zane lowe gave it the first spin on his radio..."
+
+  [9] True: surprise   Pred: sadness    Type: other
+      "i wanted to skate fast wanted to try everything just to see the difference in feel which was amazing"
+
+  [10] True: joy        Pred: surprise   Type: other
+      "i was truly surprised and feel quite honored"
+
+  [11] True: sadness    Pred: joy        Type: long/complex text
+      "i felt a stronger wish to be free from self cherishing through my refuge practice and a return to th..."
+
+  [12] True: fear       Pred: sadness    Type: mixed/contrasting emotions
+      "i forced myself to keep going back even though they made me feel consistently uncomfortable but afte..."
+
+  [13] True: love       Pred: joy        Type: confused positive emotions
+      "im polyamorous something im starting to feel truly accepted for being"
+
+  [14] True: surprise   Pred: joy        Type: mixed/contrasting emotions
+      "i guess it doesn t help that i got sick on black friday and was forced against my will to maintain m..."
+
+  [15] True: sadness    Pred: fear       Type: confused negative emotions
+      "im feeling so embarrassed frightened that i wouldve smashed the window and slid in dukes of hazzard ..."
+
+  Error Category Distribution (TF-IDF + LogReg):
+----------------------------------------
+    other                            8  (27%)
+    mixed/contrasting emotions       8  (27%)
+    confused positive emotions       7  (23%)
+    confused negative emotions       5  (17%)
+    long/complex text                2  (7%)
+
+============================================================
+  MISCLASSIFIED EXAMPLES — DistilBERT
+============================================================
+
+  Total misclassified: 132 / 2000 (6.6%)
+
+  Sample of 30 misclassified examples:
+------------------------------------------------------------
+
+  [1] True: love       Pred: joy        Type: mixed/contrasting emotions
+      "i don t know how i feel i guess it s one of those moments where you want to feel like you re accepte..."
+
+  [2] True: sadness    Pred: anger      Type: confused negative emotions
+      "when i heard the last regulation of the socialist govrenment concerning pensions"
+
+  [3] True: surprise   Pred: sadness    Type: other
+      "i just feel are ludicrous and wasting space or so trite they should have looked at the book first an..."
+
+  [4] True: anger      Pred: sadness    Type: confused negative emotions
+      "i have been sitting at home revising today and all in all feeling quite stressed"
+
+  [5] True: sadness    Pred: fear       Type: mixed/contrasting emotions
+      "i always feel so helpless during times of disaster but i feel a little better knowing that even a fe..."
+
+  [6] True: anger      Pred: sadness    Type: confused negative emotions
+      "i didnt want to be spending my days working in a job that i didnt enjoy or to come home feeling stre..."
+
+  [7] True: anger      Pred: joy        Type: other
+      "whenever i put myself in others shoes and try to make the person happy"
+
+  [8] True: love       Pred: joy        Type: confused positive emotions
+      "im polyamorous something im starting to feel truly accepted for being"
+
+  [9] True: anger      Pred: fear       Type: confused negative emotions
+      "i was lying in bed last night after a day of making experiments from the usual suspects fabric plast..."
+
+  [10] True: love       Pred: joy        Type: confused positive emotions
+      "i just can t feel accepted"
+
+  [11] True: love       Pred: joy        Type: confused positive emotions
+      "i feel like my sweet company is finally coming together"
+
+  [12] True: sadness    Pred: anger      Type: very short text
+      "i do feel stressed"
+
+  [13] True: love       Pred: joy        Type: confused positive emotions
+      "i feel not having a generous spirit or a forgiving nature closes me off from accepting gifts from th..."
+
+  [14] True: anger      Pred: fear       Type: confused negative emotions
+      "when a friend dropped a frog down my neck"
+
+  [15] True: sadness    Pred: joy        Type: other
+      "this monday i took a math bs test and flunked for the second time"
+
+  Error Category Distribution (DistilBERT):
+----------------------------------------
+    confused positive emotions      12  (40%)
+    confused negative emotions       8  (27%)
+    mixed/contrasting emotions       5  (17%)
+    other                            4  (13%)
+    very short text                  1  (3%)
+
+============================================================
+  MISCLASSIFIED EXAMPLES — BERT
+============================================================
+
+  Total misclassified: 142 / 2000 (7.1%)
+
+  Sample of 30 misclassified examples:
+------------------------------------------------------------
+
+  [1] True: love       Pred: joy        Type: mixed/contrasting emotions
+      "ive got a off sale the ad says starting tomorrow but im feeling generous and started it now"
+
+  [2] True: anger      Pred: fear       Type: confused negative emotions
+      "i took for granted a few weeks ago is really weird and makes me feel really agitated and frustrated"
+
+  [3] True: sadness    Pred: fear       Type: mixed/contrasting emotions
+      "i have not conducted a survey but it is quite likely that many of them feel as assaulted by onel s d..."
+
+  [4] True: surprise   Pred: joy        Type: mixed/contrasting emotions
+      "i mean the idea is intoxicating of course and it feels amazing when its happening but what happens i..."
+
+  [5] True: joy        Pred: love       Type: confused positive emotions
+      "i couldnt feel more blessed at this time"
+
+  [6] True: anger      Pred: sadness    Type: confused negative emotions
+      "i really dont like quinn because i feel like she will just end up hurting barney and i hated the lam..."
+
+  [7] True: surprise   Pred: fear       Type: other
+      "i start to feel a little overwhelmed knowing i have to make still"
+
+  [8] True: surprise   Pred: fear       Type: other
+      "i found myself feeling a bit overwhelmed"
+
+  [9] True: love       Pred: joy        Type: mixed/contrasting emotions
+      "i don t know how i feel i guess it s one of those moments where you want to feel like you re accepte..."
+
+  [10] True: love       Pred: joy        Type: mixed/contrasting emotions
+      "i was so impressed with the show especially for hs and i was moved by these talented kids but then a..."
+
+  [11] True: joy        Pred: anger      Type: long/complex text
+      "i met my present boyfriend on a boat trip to england we had said that we would call each other when ..."
+
+  [12] True: surprise   Pred: fear       Type: other
+      "i have been feeling overwhelmed with it all and needing to take time out"
+
+  [13] True: sadness    Pred: anger      Type: confused negative emotions
+      "when i heard the last regulation of the socialist govrenment concerning pensions"
+
+  [14] True: joy        Pred: love       Type: mixed/contrasting emotions
+      "i don t know about you but i m feeling amp blessed"
+
+  [15] True: anger      Pred: sadness    Type: confused negative emotions
+      "i need a break or im feeling stressed out"
+
+  Error Category Distribution (BERT):
+----------------------------------------
+    confused positive emotions       9  (30%)
+    mixed/contrasting emotions       7  (23%)
+    confused negative emotions       7  (23%)
+    other                            6  (20%)
+    long/complex text                1  (3%)
+
+============================================================
+  PER-CLASS F1 COMPARISON
+============================================================
+
+  Emotion       TF-IDF F1  DistilB F1     BERT F1     Delta
+------------------------------------------------------------
+  sadness          0.9054      0.9682      0.9649  + 0.0595
+  joy              0.8997      0.9518      0.9505  + 0.0508
+  love             0.7099      0.8231      0.8397  + 0.1298
+  anger            0.8625      0.9301      0.9165  + 0.0540
+  fear             0.8298      0.9119      0.8964  + 0.0666
+  surprise         0.6102      0.7786      0.7414  + 0.1312
+
+      WEIGHTED     0.8638      0.9332      0.9282  + 0.0645
+
+============================================================
+  KEY FINDINGS
+============================================================
+
+  - Hardest class for TF-IDF: surprise (F1=0.6102)
+  - Hardest class for DistilBERT: surprise (F1=0.7786)
+  - Hardest class for BERT: surprise (F1=0.7414)
+  - BERT's biggest gain over TF-IDF: surprise (+0.1312)
+  - DistilBERT vs BERT avg F1 gap: -0.0091 (negligible)
+
+============================================================

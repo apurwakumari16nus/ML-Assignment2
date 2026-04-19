@@ -1,0 +1,136 @@
+============================================================
+  EVENT SIGNIFICANCE TESTING
+  Window: 3 days before vs 3 days after
+============================================================
+
+  Loaded 96,879 comments
+  Date range: 2026-02-01 -> 2026-04-03
+  Overall distress ratio: 64.8%
+
+============================================================
+  PER-EVENT RESULTS
+============================================================
+
+  Trump 10-day ultimatum (2026-02-20)
+    Before: 63.9% distress (n=772)
+    After:  65.0% distress (n=714)
+    Change: +1.1 percentage points
+    U statistic: 278,707
+    p-value: 3.2540e-01
+    Effect size (rank-biserial): 0.0113
+    Significant: NO
+
+  Trump State of the Union (2026-02-24)
+    Before: 65.9% distress (n=747)
+    After:  60.1% distress (n=651)
+    Change: -5.8 percentage points
+    U statistic: 229,041
+    p-value: 9.8754e-01
+    Effect size (rank-biserial): -0.0580
+    Significant: NO
+
+  IAEA: weapons-grade uranium (2026-02-26)
+    Before: 61.7% distress (n=637)
+    After:  63.4% distress (n=3,496)
+    Change: +1.7 percentage points
+    U statistic: 1,132,945
+    p-value: 2.0008e-01
+    Effect size (rank-biserial): 0.0175
+    Significant: NO
+
+  US-Israel strikes begin (2026-02-28)
+    Before: 62.0% distress (n=1,289)
+    After:  64.5% distress (n=7,437)
+    Change: +2.5 percentage points
+    U statistic: 4,914,376
+    p-value: 4.0242e-02
+    Effect size (rank-biserial): 0.0253
+    Significant: YES *
+
+  Khamenei killed, Iran retaliates (2026-03-01)
+    Before: 63.4% distress (n=3,496)
+    After:  65.2% distress (n=8,368)
+    Change: +1.8 percentage points
+    U statistic: 14,891,232
+    p-value: 3.0380e-02
+    Effect size (rank-biserial): 0.0180
+    Significant: YES *
+
+  Israel strikes IRIB Tehran (2026-03-03)
+    Before: 64.5% distress (n=7,437)
+    After:  66.2% distress (n=7,349)
+    Change: +1.6 percentage points
+    U statistic: 27,776,352
+    p-value: 1.7892e-02
+    Effect size (rank-biserial): 0.0164
+    Significant: YES *
+
+  UN Security Council resolution (2026-03-11)
+    Before: 63.8% distress (n=7,071)
+    After:  64.1% distress (n=8,199)
+    Change: +0.4 percentage points
+    U statistic: 29,089,042
+    p-value: 3.2663e-01
+    Effect size (rank-biserial): 0.0035
+    Significant: NO
+
+  120+ historic sites damaged (2026-03-27)
+    Before: 63.5% distress (n=7,835)
+    After:  63.9% distress (n=7,535)
+    Change: +0.3 percentage points
+    U statistic: 29,618,825
+    p-value: 3.3045e-01
+    Effect size (rank-biserial): 0.0034
+    Significant: NO
+
+============================================================
+  SUMMARY TABLE
+============================================================
+
+  Event                             Before   After     Δpp    p-value     Sig?
+  ────────────────────────────────────────────────────────────────────────
+  Trump 10-day ultimatum             63.9%   65.0%   +1.1 3.2540e-01       NO
+  Trump State of the Union           65.9%   60.1%   -5.8 9.8754e-01       NO
+  IAEA: weapons-grade uranium        61.7%   63.4%   +1.7 2.0008e-01       NO
+  US-Israel strikes begin            62.0%   64.5%   +2.5 4.0242e-02    YES *
+  Khamenei killed, Iran retaliates   63.4%   65.2%   +1.8 3.0380e-02    YES *
+  Israel strikes IRIB Tehran         64.5%   66.2%   +1.6 1.7892e-02    YES *
+  UN Security Council resolution     63.8%   64.1%   +0.4 3.2663e-01       NO
+  120+ historic sites damaged        63.5%   63.9%   +0.3 3.3045e-01       NO
+
+  Events with significant distress increase: 3/8
+
+  Bonferroni correction (α = 0.0063):
+    Events significant after correction: 0/8
+
+============================================================
+  GENERATING CHARTS
+============================================================
+
+============================================================
+  INTERPRETATION
+============================================================
+
+  The Mann-Whitney U test is a non-parametric test that compares whether
+  the distress ratio in the AFTER window is significantly greater than
+  the BEFORE window for each event.
+
+  Significance levels:
+    *   p < 0.05  (suggestive)
+    **  p < 0.01  (strong)
+    *** p < 0.001 (very strong)
+
+  Effect size (rank-biserial):
+    |r| < 0.1  negligible
+    |r| < 0.3  small
+    |r| < 0.5  medium
+    |r| >= 0.5 large
+
+  CAVEATS:
+  - 3-day windows are short; results sensitive to window choice
+  - Events close together may have overlapping windows
+  - Comment volume varies by day (weekday vs weekend)
+  - These are model-estimated emotions, not ground truth
+  - Multiple testing increases false positive risk (Bonferroni applied)
+
+============================================================

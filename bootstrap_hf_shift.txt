@@ -1,0 +1,17 @@
+============================================================
+  BOOTSTRAP 95% CI — HF MODEL baseline→war distress shift
+============================================================
+  n per group:       2000
+  bootstrap samples: 2000
+  seed:              42
+
+  Strict distress (sad+fear+anger):
+    point estimate:   -0.25 pp
+    95% CI:           [-2.90, +2.30] pp
+    contains zero:    YES
+
+  Expanded distress (+disgust):
+    point estimate:   +0.85 pp
+    95% CI:           [-2.00, +3.80] pp
+    contains zero:    YES
+============================================================

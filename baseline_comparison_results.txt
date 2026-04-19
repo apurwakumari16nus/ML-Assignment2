@@ -1,0 +1,70 @@
+============================================================
+  BASELINE COMPARISON — Pre-Conflict vs War Period
+============================================================
+
+  War-period comments: 96,879
+
+  Loading baseline data from reddit_baseline_comments_clean.csv...
+  Baseline comments: 3,083
+
+  Classifying baseline comments with BERT...
+  Classified baseline comments: 3,083
+
+============================================================
+  EMOTION DISTRIBUTIONS
+============================================================
+
+  Emotion        Baseline %        War %       Change
+  ────────────────────────────────────────────────
+  sadness              7.2%         8.6% +       1.3pp
+  joy                 37.6%        33.3%       -4.3pp
+  love                 0.7%         0.5%       -0.2pp
+  anger               47.2%        49.0% +       1.8pp
+  fear                 6.2%         7.3% +       1.1pp
+  surprise             1.0%         1.3% +       0.3pp
+
+  Distress Ratio (sadness + fear + anger):
+    Baseline: 60.6%
+    War:      64.8%
+    Change:   +4.2 percentage points
+
+============================================================
+  STATISTICAL SIGNIFICANCE
+============================================================
+
+  Chi-square test (baseline vs war emotion distributions):
+    Chi-square statistic: 34.71
+    Degrees of freedom:   5
+    p-value:              1.72e-06
+    Significant at 0.05:  YES
+
+  Mann-Whitney U test (distress proportion):
+    U statistic: 155,637,958
+    p-value:     1.40e-06
+    Significant: YES
+
+============================================================
+  GENERATING CHARTS
+============================================================
+
+============================================================
+  KEY FINDINGS
+============================================================
+
+  1. Baseline distress ratio: 60.6%
+     War-period distress ratio: 64.8%
+     Change: +4.2 percentage points
+
+  2. The emotional distribution shift is statistically significant
+     (Chi-square p = 1.72e-06)
+
+  3. This confirms that the war period shows elevated
+     emotional distress compared to the pre-conflict baseline.
+
+  NOTE: Baseline data uses broader keywords than war-period data.
+  The baseline captures general subreddit discourse, while war data
+  is specifically filtered for conflict-related content. This means
+  some of the distress difference may reflect topic selection rather
+  than a true population-level emotional shift.
+
+============================================================

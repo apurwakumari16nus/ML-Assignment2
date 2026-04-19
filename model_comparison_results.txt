@@ -1,0 +1,127 @@
+============================================================
+  MODEL COMPARISON — VADER vs TF-IDF vs BERT
+============================================================
+
+Evaluating models on Saravia emotion test set...
+
+  [1/5] VADER (lexicon-based)...
+    Accuracy=0.7555, F1=0.7571
+    (3-class: pos/neg/neutral — VADER cannot do 6-class)
+
+  [2/5] TF-IDF + Logistic Regression...
+    Accuracy=0.8665, F1=0.8638
+
+  [3/5] TF-IDF + Linear SVM...
+    Accuracy=0.8800, F1=0.8782
+
+  [4/5] DistilBERT (fine-tuned)...
+    Accuracy=0.9340, F1=0.9332
+
+  [5/5] BERT (fine-tuned)...
+    Accuracy=0.9290, F1=0.9282
+
+============================================================
+  COMPARISON TABLE
+============================================================
+
+  Model                  Task                 Acc      F1  Train(s)  Infer(s)  GPU?
+  ---------------------------------------------------------------------------------
+  VADER (lexicon)        3-class sentiment  0.7555  0.7571      0.00      0.08    No
+  TF-IDF + LogReg        6-class emotion   0.8665  0.8638      1.52      0.00    No
+  TF-IDF + SVM           6-class emotion   0.8800  0.8782      0.14      0.00    No
+  DistilBERT (fine-tuned) 6-class emotion   0.9340  0.9332    319.00      1.74   Yes
+  BERT (fine-tuned)      6-class emotion   0.9290  0.9282    622.00      2.21   Yes
+
+  Speed Analysis:
+    TF-IDF is 2207x faster than BERT at inference
+    DistilBERT is 1.3x faster than BERT at inference
+    DistilBERT F1 drop vs BERT: -0.0050 (negligible)
+    VADER inference: 0.08s, TF-IDF: 0.0005s
+
+============================================================
+  PRACTICAL RECOMMENDATIONS
+============================================================
+
+  1. VADER is best for:
+     - Quick sentiment polarity (pos/neg/neutral)
+     - No training data available
+     - Real-time processing of very large datasets
+     - Social media text with slang, emojis, exclamation marks
+
+  2. TF-IDF + LogReg is best for:
+     - Multi-class classification without GPU
+     - Fast training and inference
+     - When labeled data is available
+     - Baseline that's hard to beat for the compute cost
+
+  3. DistilBERT is the OVERALL WINNER:
+     - HIGHEST F1 of all models (0.9332 vs BERT's 0.9282)
+     - 40% smaller than BERT (66M vs 110M parameters)
+     - ~1.4x faster inference, ~50% faster training (319s vs 622s)
+     - Best accuracy-speed tradeoff — recommended for production
+
+  4. BERT is best for:
+     - When context matters (sarcasm, mixed emotions)
+     - Research settings where having the largest model is preferred
+     - Fine-grained emotion detection (love vs joy, anger vs fear)
+     - Note: BERT did NOT beat DistilBERT on this task (0.9282 vs 0.9332)
+
+  For this mental health analysis:
+  - DistilBERT is the top performer: highest F1, lower cost than BERT
+  - BERT is a close second but does not justify its extra compute
+  - TF-IDF validates that deep learning gains justify the complexity
+  - VADER offers a complementary sentiment signal
+  - The 5-method comparison strengthens conclusions
+
+  LIMITATIONS:
+  - All model-estimated emotions on Reddit are predictions, not ground truth
+  - Models trained on Saravia tweets; Reddit domain may differ (domain mismatch)
+  - VADER's 3-class task is not directly comparable to 6-class emotion
+  - Subreddit sample sizes are imbalanced (worldnews dominates)
+  - Reddit users are not representative of the general population (selection bias)
+
+============================================================
+
+Generating comparison charts...
+
+============================================================
+  REDDIT PREDICTIONS — Cross-Method Comparison
+============================================================
+
+  VADER — Sentiment Distribution:
+    negative     44,657  (46.1%)
+    positive     32,898  (34.0%)
+    neutral      19,324  (19.9%)
+
+  BERT — Emotion Distribution:
+    anger        47,459  (49.0%)
+    joy          32,268  (33.3%)
+    sadness       8,307  (8.6%)
+    fear          7,051  (7.3%)
+    surprise      1,277  (1.3%)
+    love            517  (0.5%)
+
+  DistilBERT — Emotion Distribution:
+    anger        41,444  (42.8%)
+    joy          39,700  (41.0%)
+    sadness       8,043  (8.3%)
+    fear          5,968  (6.2%)
+    surprise        978  (1.0%)
+    love            746  (0.8%)
+
+  TF-IDF — Emotion Distribution:
+    joy          60,784  (62.7%)
+    sadness      25,959  (26.8%)
+    anger         6,049  (6.2%)
+    fear          2,570  (2.7%)
+    love            861  (0.9%)
+    surprise        656  (0.7%)
+
+  BERT vs TF-IDF agreement on Reddit: 36.2%
+  Per-emotion agreement:
+    sadness      52.0% (n=8,307)
+    joy          76.9% (n=32,268)
+    love         45.1% (n=517)
+    anger        9.1% (n=47,459)
+    fear         12.2% (n=7,051)
+    surprise     39.2% (n=1,277)

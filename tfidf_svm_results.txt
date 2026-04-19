@@ -1,0 +1,54 @@
+============================================================
+  TF-IDF + LINEAR SVM
+============================================================
+
+Loading emotion dataset...
+
+Step 1: TF-IDF Vectorization...
+  Vocabulary: 32,995 features
+
+Step 2: Hyperparameter tuning (C)...
+  C=0.1: val F1=0.8427
+  C=1.0: val F1=0.8948
+  C=10.0: val F1=0.8904
+  -> Best C=1.0 (F1=0.8948)
+
+Step 3: Training with 3 seeds (C=1.0)...
+  Seed 42: acc=0.8800, F1=0.8782, train=0.14s, infer=0.0003s
+  Seed 123: acc=0.8800, F1=0.8782, train=0.14s, infer=0.0003s
+  Seed 456: acc=0.8800, F1=0.8782, train=0.14s, infer=0.0005s
+
+============================================================
+  RESULTS (mean +/- std)
+============================================================
+  Accuracy:  0.8800 +/- 0.0000
+  F1:        0.8782 +/- 0.0000
+
+  Classification Report (seed=456):
+              precision    recall  f1-score   support
+
+     sadness     0.9091    0.9294    0.9191       581
+         joy     0.8854    0.9338    0.9090       695
+        love     0.7778    0.7044    0.7393       159
+       anger     0.8985    0.8691    0.8835       275
+        fear     0.8750    0.8125    0.8426       224
+    surprise     0.6909    0.5758    0.6281        66
+
+    accuracy                         0.8800      2000
+   macro avg     0.8394    0.8042    0.8203      2000
+weighted avg     0.8779    0.8800    0.8782      2000
+
+
+Step 4: Classifying Reddit comments...
+  96,879 comments loaded
+  Saved -> /Users/prateekbansal/Apurwa/Study/DSS5104-MachineLearning/Assignemnet_2/Reddit_data_exploration/reddit_comments_tfidf_svm.csv
+
+  Reddit emotion distribution (SVM):
+    joy        53,944  (55.7%)
+    sadness    24,994  (25.8%)
+    anger      10,088  (10.4%)
+    fear        5,116  (5.3%)
+    love        1,712  (1.8%)
+    surprise    1,025  (1.1%)
+
+============================================================

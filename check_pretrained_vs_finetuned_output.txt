@@ -1,0 +1,122 @@
+============================================================
+  YOUR FINE-TUNED BERT vs HUGGINGFACE PRE-TRAINED MODEL
+============================================================
+
+  Total Reddit comments: 96,879
+  Sampled 1000 for comparison
+
+  Loading your fine-tuned BERT...
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 20172.64it/s]
+  Your model predictions done.
+
+  Loading HuggingFace model: j-hartmann/emotion-english-distilroberta-base
+  (This will download ~1GB on first run)
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 33567.22it/s]
+[1mRobertaForSequenceClassification LOAD REPORT[0m from: j-hartmann/emotion-english-distilroberta-base
+Key                             | Status     |  | 
+--------------------------------+------------+--+-
+roberta.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  Running HF model predictions...
+  HF model predictions done.
+
+============================================================
+  RESULTS
+============================================================
+
+  Emotion Distribution (on 1000 comments):
+
+  Emotion         Your BERT     HF Model
+  ────────────────────────────────────
+  anger               48.9%        14.3%
+  disgust              0.0%        13.5%
+  fear                 6.7%         5.5%
+  joy                 32.8%         2.6%
+  love                 0.6%         0.0%
+  neutral              0.0%        52.3%
+  sadness              8.5%         2.5%
+  surprise             2.5%         9.3%
+
+  Agreement on overlapping emotions: 49.6% (169/341)
+  Exact match (all classes): 16.9% (169/1000)
+
+  Per-Emotion Agreement (where your model predicts X,
+  does HF model also predict X?):
+
+  Your Pred     Count  HF Agrees  Agree %
+  ──────────────────────────────────────
+  anger           489        103    21.1%
+  fear             67         17    25.4%
+  joy             328         25     7.6%
+  love              6          0     0.0%
+  sadness          85          9    10.6%
+  surprise         25         15    60.0%
+
+────────────────────────────────────────────────────────────
+  SAMPLE DISAGREEMENTS (first 10):
+────────────────────────────────────────────────────────────
+
+  [1] "Military production can be rebuilt which since the regime is still in place mean..."
+       Your BERT: anger         HF Model: neutral
+
+  [2] "can't they just pivot to China if Iran wins out?..."
+       Your BERT: anger         HF Model: neutral
+
+  [3] "> ”But it’s important to first understand the audience”
+
+Respectfully, I think y..."
+       Your BERT: joy           HF Model: neutral
+
+  [4] "Make wars World again..."
+       Your BERT: anger         HF Model: neutral
+
+  [5] "Updating our evacuation status to: “it’s complicated”..."
+       Your BERT: fear          HF Model: neutral
+
+  [6] "People seriously underestimate the Iranian’s desire to not be invaded. It’s just..."
+       Your BERT: anger         HF Model: neutral
+
+  [7] "Wrap it up already...."
+       Your BERT: joy           HF Model: anger
+
+  [8] "Whatever you think of trump and however stupid you think the decision was to att..."
+       Your BERT: joy           HF Model: anger
+
+  [9] "i keep seeing this "Iran is willing to commit national suicide" framing and i ge..."
+       Your BERT: anger         HF Model: neutral
+
+  [10] ">High oil prices are good? High oil/gas prices are actually good!!!! 
+- Red Hats..."
+       Your BERT: joy           HF Model: surprise
+
+============================================================
+  DISTRESS RATIO COMPARISON
+============================================================
+
+  Your BERT distress (sad+fear+anger):  64.1%
+  HF model distress (sad+fear+anger):   22.3%
+  HF model distress (+disgust):         35.8%
+
+============================================================
+  INTERPRETATION
+============================================================
+
+  The HF model (j-hartmann) was trained on 6 different datasets
+  and has 7 classes (adds 'disgust' and 'neutral', drops 'love').
+
+  Key differences to expect:
+  - HF has 'neutral' class — many of your 'joy' or 'anger' may
+    map to 'neutral' in HF (Reddit comments are often matter-of-fact)
+  - HF has 'disgust' — some of your 'anger' may split into 'disgust'
+  - Your model has 'love' — HF doesn't, so these will mismatch
+
+  High agreement = your fine-tuned model produces similar results
+  to an independent, well-validated model. This is good validation.
+
+  Low agreement = the models see Reddit text differently, likely
+  due to different training data and class definitions.
+
+============================================================
